@@ -13,7 +13,7 @@ public interface ArenaSettings {
 	 *
 	 * @return the arena name
 	 */
-	public String getName();
+	String getName();
 
 	/**
 	 * Return which phase activates PvP (player may
@@ -21,28 +21,28 @@ public interface ArenaSettings {
 	 *
 	 * @return from which phase friendly fire is enabled
 	 */
-	public int getPvpPhase();
+	int getPvpPhase();
 
 	/**
 	 * Get when we should stop the arena if there is less or equals players
 	 *
 	 * @return see above
 	 */
-	public int getAutoStopPlayersLimit();
+	int getAutoStopPlayersLimit();
 
 	/**
 	 * Get the last phase or -1 if not set (arena ends only when time is up).
 	 *
 	 * @return the last phase, -1 for no end phase
 	 */
-	public int getLastPhase();
+	int getLastPhase();
 
 	/**
 	 * Get the phase after which arena ends automatically when all monsters are killed.
 	 *
 	 * @return the end phase no monsters, or -1 if feature disabled
 	 */
-	public int getEndPhaseNoMonsters();
+	int getEndPhaseNoMonsters();
 
 	/**
 	 * Get the last phase or -1 if not set (arena will still continue to play, just
@@ -50,14 +50,22 @@ public interface ArenaSettings {
 	 *
 	 * @return the max phase, -1 for no infinite increase
 	 */
-	public int getMaxPhase();
+	int getMaxPhase();
 
 	/**
 	 * When the arena should enter the next phase?
 	 *
 	 * @return the next phase mode
 	 */
-	public NextPhaseMode getNextPhaseMode();
+	NextPhaseMode getNextPhaseMode();
+
+	/**
+	 * Get the warm-up pause from when we can go to the next phase
+	 * till we actually launch it, in seconds
+	 *
+	 * @return the wait period between switching phases, in seconds
+	 */
+	int getNextPhaseWaitSeconds();
 
 	/**
 	 * Return how many times the player may get
@@ -65,21 +73,21 @@ public interface ArenaSettings {
 	 *
 	 * @return lifes per player in the arena
 	 */
-	public int getLifes();
+	int getLifes();
 
 	/**
 	 * Get the minimum class tier required to enter
 	 *
 	 * @return the minimum class tier required to enter
 	 */
-	public int getMinimumTier();
+	int getMinimumTier();
 
 	/**
 	 * Get the random distance around the mob spawner to spread mobs out.
 	 *
 	 * @return the random distance around the mob spawner to spread mobs out
 	 */
-	public int getMobSpread();
+	int getMobSpread();
 
 	/**
 	 * Return whether or not the classes are completely
@@ -88,7 +96,7 @@ public interface ArenaSettings {
 	 *
 	 * @return if arena allows joining with own equipment
 	 */
-	public boolean allowOwnEquipment();
+	boolean allowOwnEquipment();
 
 	/**
 	 * Return whether or not the mobs should drop
@@ -96,7 +104,7 @@ public interface ArenaSettings {
 	 *
 	 * @return if arena allows mobs natural drops
 	 */
-	public boolean allowNaturalDrops();
+	boolean allowNaturalDrops();
 
 	/**
 	 * Should players be teleported to a random spawnpoint, or to the first one
@@ -104,7 +112,7 @@ public interface ArenaSettings {
 	 *
 	 * @return whether respawning should teleport to random spawnpoints
 	 */
-	public boolean isRespawningRandom();
+	boolean isRespawningRandom();
 
 	/**
 	 * Get if monsters should burn on the sunlight.
@@ -112,197 +120,173 @@ public interface ArenaSettings {
 	 *
 	 * @return if monsters should burn
 	 */
-	public boolean allowMonstersBurn();
+	boolean allowMonstersBurn();
 
 	/**
 	 * Place team helmets?
 	 *
 	 * @return whether or not to place them!
 	 */
-	public boolean placeTeamHelmets();
+	boolean placeTeamHelmets();
 
 	/**
 	 * Should right clicking with bones spawn wolves?
 	 *
 	 * @return if right clicking with bones spawn wolves
 	 */
-	public boolean spawnWolves();
+	boolean spawnWolves();
 
 	/**
 	 * Should right clicking with fireballs launch them?
 	 *
 	 * @return if right clicking with fireballs launch them?
 	 */
-	public boolean launchFireballs();
+	boolean launchFireballs();
 
 	/**
 	 * Should placing tnt ignite it?
 	 *
 	 * @return if placing tnt ignites it
 	 */
-	public boolean igniteTnts();
+	boolean igniteTnts();
 
 	/**
 	 * Return the maximum players in the arena
 	 *
 	 * @return the maximum players in the arena
 	 */
-	public int getMinimumPlayers();
+	int getMinimumPlayers();
 
 	/**
 	 * Return the minimum players in the arena
 	 *
 	 * @return the minimum players in the arena
 	 */
-	public int getMaximumPlayers();
+	int getMaximumPlayers();
 
 	/**
 	 * Return the maximum monsters in the arena
 	 *
 	 * @return the maximum monsters in the arena
 	 */
-	public int getMobLimit();
+	int getMobLimit();
 
 	/**
 	 * Get the lobby duration, in seconds
 	 *
 	 * @return the lobby duration, in seconds
 	 */
-	public int getLobbyDurationSeconds();
+	int getLobbyDurationSeconds();
 
 	/**
 	 * Get the arena duration, in seconds
 	 *
 	 * @return the arena duration, in seconds
 	 */
-	public int getArenaDurationSeconds();
+	int getArenaDurationSeconds();
 
 	/**
 	 * Get the phase duration, in seconds
 	 *
 	 * @return the phase duration, in seconds
 	 */
-	public int getPhaseDurationSeconds();
+	int getPhaseDurationSeconds();
 
 	/**
 	 * Get an implementation of when chests should be refillen.
 	 *
 	 * @return the chest refill trigger
 	 */
-	public ArenaTrigger getChestRefill();
+	ArenaTrigger getChestRefill();
 
 	/**
 	 * Get material allower for things that can be broken.
 	 *
 	 * @return a list of things that can be broken
 	 */
-	public ArenaMaterialAllower getBreakingList();
+	ArenaMaterialAllower getBreakingList();
 
 	/**
 	 * Get material allower for things that can be placed.
 	 *
 	 * @return a list of things that can be placed
 	 */
-	public ArenaMaterialAllower getPlaceList();
+	ArenaMaterialAllower getPlaceList();
 
 	/**
 	 * Get items that always take damage regardless of Arena.Auto_Repair in settings.yml
 	 *
 	 * @return items that always take damage
 	 */
-	public ArenaMaterialAllower getRepairBlacklist();
+	ArenaMaterialAllower getRepairBlacklist();
 
 	/**
 	 * Get the commands to be run when arena starts.
 	 *
 	 * @return the commands.
 	 */
-	public ArenaCommands getStartCommands();
+	ArenaCommands getStartCommands();
 
 	/**
 	 * Get the commands to be run on the next phase.
 	 *
 	 * @return the commands.
 	 */
-	public ArenaCommands getPhaseCommands();
+	ArenaCommands getPhaseCommands();
 
 	/**
 	 * Get the commands to only be run when arena ends gracefully.
 	 *
 	 * @return the commands.
 	 */
-	public ArenaCommands getFinishCommands();
+	ArenaCommands getFinishCommands();
 
 	/**
 	 * Get the commands to be run when arena ends for whatever reason.
 	 *
 	 * @return the commands.
 	 */
-	public ArenaCommands getEndCommands();
+	ArenaCommands getEndCommands();
 
 	/**
 	 * Get the commands to be run when a player leaves for whatever reason.
 	 *
 	 * @return the commands.
 	 */
-	public ArenaCommands getPlayerLeaveCommands();
+	ArenaCommands getPlayerLeaveCommands();
 
 	/**
 	 * Checks the phase experience formula for this arena for how much exp to award<br>
-	 * First checks if there are any specific settings for the arena, 
+	 * First checks if there are any specific settings for the arena,
 	 * and returns the global setting if none is set.
-	 * 
+	 *
 	 * @param currentPhase the phase the arena is in.
 	 * @return experience.
 	 */
-	public int getPhaseExp(int currentPhase);
+	int getPhaseExp(int currentPhase);
 
 	/**
 	 * Get the team experience for this arena <br>
-	 * First checks if there are any specific settings for the arena, 
+	 * First checks if there are any specific settings for the arena,
 	 * and returns the global setting if none is set.
-	 * 
+	 *
 	 * @param currentPhase the phase the arena is in.
 	 * @param reward reward to distribute.
 	 * @param playerCount how many players are in the arena.
 	 * @return experience formula.
 	 */
-	public int getTeamExp(int currentPhase, int reward, int playerCount);
+	int getTeamExp(int currentPhase, int reward, int playerCount);
 
 	/**
 	 * Checks the phase experience formula for this entity in this arena for how much exp to award<br>
-	 * First checks if there are any specific settings for the arena, 
+	 * First checks if there are any specific settings for the arena,
 	 * and returns the global setting if none is set.
-	 * 
+	 *
 	 * @param entity entity to lookup
 	 * @param currentPhase the phase the arena is in.
 	 * @return experience formula.
 	 */
-	public int getExpFor(Entity entity, int currentPhase);
-
-	// -------------------------------------------------------------------------------------
-	// Features for specific plugins or that needs to be implemented in those plugins
-	// -------------------------------------------------------------------------------------
-
-	/**
-	 * Calculate team reward depending on how many teams are left when arena ended.
-	 *
-	 * @param teamsLeft how many winning teams there are
-	 * @return the reward for the parameter
-	 */
-	public Integer getTeamReward(int teamsLeft);
-
-	/**
-	 * Get the y-height for which players are killed.
-	 * Only works if the plugin supports it (for ex. Puncher)
-	 *
-	 * @return the kill height
-	 */
-	public int getKillHeight();
-
-	// -------------------------------------------------------------------------------------
-	// Private API
-	// -------------------------------------------------------------------------------------
+	int getExpFor(Entity entity, int currentPhase);
 
 	/**
 	 * Get the internal data section
@@ -317,4 +301,26 @@ public interface ArenaSettings {
 	 * This keeps arena registered, please use method in arena manager to remove arena!
 	 */
 	void removeSettingsFile();
+
+	// -------------------------------------------------------------------------------------
+	// Features for specific plugins or that needs to be implemented in those plugins
+	// -------------------------------------------------------------------------------------
+
+	/**
+	 * Calculate team reward depending on how many teams are left when arena ended.
+	 *
+	 * @param teamsLeft how many winning teams there are
+	 * @return the reward for the parameter
+	 */
+	Integer getTeamReward(int teamsLeft);
+
+	/**
+	 * Get the y-height for which players are killed.
+	 * Only works if the plugin supports it (for ex. Puncher)
+	 *
+	 * @return the kill height
+	 */
+	int getKillHeight();
+
+
 }
