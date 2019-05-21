@@ -35,7 +35,7 @@ public final class ArenaCommands {
 	}
 
 	// Remove first / slash from the command list.
-	private final List<String> removeFirstSlash(List<String> commands) {
+	private List<String> removeFirstSlash(List<String> commands) {
 		final List<String> copy = new ArrayList<>();
 
 		if (commands != null)
@@ -57,11 +57,30 @@ public final class ArenaCommands {
 	 * @param consoleForEach run console commands for each player as the console or from the console, once?
 	 * @param player
 	 */
-	public final void run(Arena arena, boolean consoleForEach) {
+	public void run(Arena arena, boolean consoleForEach) {
 		runConsole(arena, consoleForEach);
 
 		for (final Player player : arena.getPlayers())
-			runPlayer(arena, player);
+			runAsPlayer(arena, player);
+	}
+
+	/*
+	 * Run {@link #consoleCommands} as the server operator.
+	 *
+	 * @param arena
+	 * @param consoleForEach run console commands for each player as the console or from the console, once?
+	 */
+	private void runConsole(Arena arena, boolean consoleForEach) {
+		for (final String cmd : consoleCommands) {
+			final String coloredCommand = GameAPIUtil.colorize(arena.getMessenger().replaceVariables(cmd));
+
+			if (consoleForEach)
+				for (final Player player : arena.getPlayers())
+					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), coloredCommand.replace("{player}", player.getName()));
+
+			else
+				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), coloredCommand);
+		}
 	}
 
 	/**
@@ -70,7 +89,7 @@ public final class ArenaCommands {
 	 * @param arena
 	 * @param player
 	 */
-	public final void runPlayer(Arena arena, Player player) {
+	public void runAsPlayer(Arena arena, Player player) {
 		for (final String cmd : playerCommands) {
 			final String coloredCommand = GameAPIUtil.colorize( arena.getMessenger().replaceVariables(cmd.replace("{player}", player.getName())) );
 
@@ -86,31 +105,12 @@ public final class ArenaCommands {
 	}
 
 	/**
-	 * Run {@link #consoleCommands} as the server operator.
-	 *
-	 * @param arena
-	 * @param consoleForEach run console commands for each player as the console or from the console, once?
-	 */
-	public final void runConsole(Arena arena, boolean consoleForEach) {
-		for (final String cmd : consoleCommands) {
-			final String coloredCommand = GameAPIUtil.colorize( arena.getMessenger().replaceVariables(cmd) );
-
-			if (consoleForEach)
-				for (final Player player : arena.getPlayers())
-					Bukkit.dispatchCommand(Bukkit.getConsoleSender(), coloredCommand.replace("{player}", player.getName()));
-
-			else
-				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), coloredCommand);
-		}
-	}
-
-	/**
 	 * Runs {@link #consoleCommands} as the server console, translates \@tell and \@connect variables
 	 *
 	 * @param arena the arena
 	 * @param player the sender
 	 */
-	public final void runConsoleFor(Arena arena, Player player) {
+	public void runAsConsole(Arena arena, Player player) {
 		for (final String cmd : consoleCommands) {
 			final String coloredCommand = GameAPIUtil.colorize( arena.getMessenger().replaceVariables(cmd.replace("{player}", player.getName())) );
 
