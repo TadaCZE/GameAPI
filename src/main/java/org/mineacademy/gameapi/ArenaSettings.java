@@ -228,6 +228,14 @@ public interface ArenaSettings {
 	ArenaCommands getStartCommands();
 
 	/**
+	 * Get the commands to be run when the first player joins the lobby and starts countdown
+	 * that starts the arena
+	 *
+	 * @return
+	 */
+	ArenaCommands getLobbyStartCommands();
+
+	/**
 	 * Get the commands to be run on the next phase.
 	 *
 	 * @return the commands.
