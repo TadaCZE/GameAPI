@@ -20,7 +20,7 @@ import lombok.Setter;
 /**
  * You can use this simple class to save and restore players' inventories.
  */
-@NoArgsConstructor(access=AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class InventoryStorageUtil {
 
 	/**
@@ -104,7 +104,7 @@ public class InventoryStorageUtil {
 		try {
 			s.setMaxHealth(player.getMaxHealth());
 			s.setHealth(player.getHealth());
-			s.setExtraContent( player.getInventory().getExtraContents() );
+			s.setExtraContent(player.getInventory().getExtraContents());
 			s.setInvulnerable(player.isInvulnerable());
 			s.setSilent(player.isSilent());
 			s.setGlowing(player.isGlowing());
@@ -140,7 +140,8 @@ public class InventoryStorageUtil {
 
 		try {
 			player.getInventory().setExtraContents(s.getExtraContent());
-		} catch (final NoSuchMethodError err) {}
+		} catch (final NoSuchMethodError err) {
+		}
 
 		player.setMaxHealth(s.getMaxHealth());
 		player.setHealth(s.getHealth());
@@ -150,8 +151,6 @@ public class InventoryStorageUtil {
 		player.setMaximumAir(s.getMaximumAir());
 		player.setFallDistance(s.getFallDistance());
 		player.setFireTicks(s.getFireTicks());
-
-
 
 		player.setFoodLevel(s.getFoodLevel());
 		player.setExhaustion(s.getExhaustion());
@@ -164,7 +163,8 @@ public class InventoryStorageUtil {
 			player.setGlowing(s.isGlowing());
 			player.setInvulnerable(s.isInvulnerable());
 			player.setSilent(s.isSilent());
-		} catch (final NoSuchMethodError err) {}
+		} catch (final NoSuchMethodError err) {
+		}
 
 		// Potions
 		for (final PotionEffect ef : player.getActivePotionEffects())
@@ -177,7 +177,8 @@ public class InventoryStorageUtil {
 		try {
 			for (final String tag : s.getScoreboardTags())
 				player.addScoreboardTag(tag);
-		} catch (final Throwable err) {}
+		} catch (final Throwable err) {
+		}
 
 		if (!player.isOnline())
 			player.saveData();

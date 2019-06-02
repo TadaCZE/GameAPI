@@ -15,7 +15,7 @@ public interface ClassTier extends ConfigSerializable {
 	 *
 	 * @return the tier level
 	 */
-	public int getTier();
+	int getTier();
 
 	/**
 	 * Assign this class tier a new level
@@ -27,35 +27,35 @@ public interface ClassTier extends ConfigSerializable {
 	 * handling everything else if you call this method (a lot)
 	 */
 	@Deprecated
-	public void setTier(int tier);
+	void setTier(int tier);
 
 	/**
 	 * Get the costs to update to this tier
 	 *
 	 * @return the cost, in Nuggets
 	 */
-	public int getLevelCost();
+	int getLevelCost();
 
 	/**
 	 * Set a new costs to update to this tier
 	 *
 	 * @param cost the new cost
 	 */
-	public void setLevelCost(int cost);
+	void setLevelCost(int cost);
 
 	/**
 	 * Get the inventory content for this tier
 	 *
 	 * @return the inventory content
 	 */
-	public ItemStack[] getContent();
+	ItemStack[] getContent();
 
 	/**
 	 * Get the armor content for this tier
 	 *
 	 * @return the armor content
 	 */
-	public ArmorContent getArmor();
+	ArmorContent getArmor();
 
 	/**
 	 * Give this tier to the player
@@ -63,7 +63,7 @@ public interface ClassTier extends ConfigSerializable {
 	 * @param player the player
 	 * @param mode, how we should give the items
 	 */
-	public void giveToPlayer(Player player, TierMode mode);
+	void giveToPlayer(Player player, TierMode mode);
 
 	/**
 	 * Called when the player leaves the arena so you can reverse changes
@@ -71,5 +71,5 @@ public interface ClassTier extends ConfigSerializable {
 	 *
 	 * @param player the player
 	 */
-	public void onArenaLeave(Player player);
+	void onArenaLeave(Player player);
 }

@@ -13,14 +13,14 @@ public interface BossBarIndicator {
 	 *
 	 * @param player the player
 	 */
-	public void showTo(Player player);
+	void showTo(Player player);
 
 	/**
 	 * Hide the bar from a player
 	 *
 	 * @param player the player
 	 */
-	public void hideFrom(Player player);
+	void hideFrom(Player player);
 
 	/**
 	 * Return if the player is currently viewing the bar
@@ -28,14 +28,14 @@ public interface BossBarIndicator {
 	 * @param player the player
 	 * @return true if player sees the bar
 	 */
-	public boolean hasBar(Player player);
+	boolean hasBar(Player player);
 
 	/**
 	 * Updates the title of this boss bar
 	 *
 	 * @param title the new title
 	 */
-	public void updateTitle(String title);
+	void updateTitle(String title);
 
 	/**
 	 * Updates progress of this boss bar
@@ -43,17 +43,17 @@ public interface BossBarIndicator {
 	 *
 	 * @param progress the new progress
 	 */
-	public void updateProgress(double progress);
+	void updateProgress(double progress);
 
 	/**
 	 * Updates the color of this boss bar
 	 *
 	 * @param color the new color
 	 */
-	public void updateColor(ArenaBarColor color);
+	void updateColor(ArenaBarColor color);
 
 	/**
 	 * Completely hide the bar from everyone
 	 */
-	public void hide();
+	void hide();
 }

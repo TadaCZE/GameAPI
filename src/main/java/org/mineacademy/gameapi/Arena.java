@@ -41,7 +41,7 @@ public interface Arena {
 	 *
 	 * @return if the player was joined, false if conditions didn't allow it
 	 */
-	public boolean joinPlayer(Player player, JoinCause cause);
+	boolean joinPlayer(Player player, JoinCause cause);
 
 	/**
 	 * Attempts to kick a player from this arena or
@@ -51,28 +51,28 @@ public interface Arena {
 	 * @param cause why is the player quitting
 	 * @return if the player was kicked, false if the {@link ArenaPreLeaveEvent} was cancelled
 	 */
-	public boolean kickPlayer(Player player, LeaveCause cause);
+	boolean kickPlayer(Player player, LeaveCause cause);
 
 	/**
 	 * Attempts to start the lobby. This is typically called when the arena is stopped and first player has joined.
 	 *
 	 * Typically, you should update your signs here, start countdown till the arena starts and restore initial snapshot.
 	 */
-	public void startLobby();
+	void startLobby();
 
 	/**
 	 * Attempts to start the arena immediately, typically called after the lobby has started, see {@link #startLobby()}
 	 *
 	 * @return true if the arena was started successfully
 	 */
-	public boolean startArena();
+	boolean startArena();
 
 	/**
 	 * Attempts to stop the arena immediately
 	 *
 	 * @param cause, the reason why it is being stopped
 	 */
-	public void stopArena(StopCause cause);
+	void stopArena(StopCause cause);
 
 	/**
 	 * Moves an active arena player to his last saved location, or world's spawn if
@@ -80,7 +80,7 @@ public interface Arena {
 	 *
 	 * @param player the player to teleport
 	 */
-	public void teleportPlayerBack(Player player);
+	void teleportPlayerBack(Player player);
 
 	// ----------------------------------------------------------------------------------------
 	// Main API methods
@@ -89,21 +89,21 @@ public interface Arena {
 	/**
 	 * The name of the arena, as specified in the config.
 	 */
-	public String getName();
+	String getName();
 
 	/**
 	 * Can players play this arena?
 	 *
 	 * @return is the arena enabled?
 	 */
-	public boolean isEnabled();
+	boolean isEnabled();
 
 	/**
 	 * Enabled arenas may be joined for playing, whereas disabled arenas may only be edited.
 	 *
 	 * @param enabled, toggle the arena being enabled
 	 */
-	public void setEnabled(boolean enabled);
+	void setEnabled(boolean enabled);
 
 	/**
 	 * Normally, when you stop or start the arena, the snapshots will automatically be restored.
@@ -112,13 +112,13 @@ public interface Arena {
 	 *
 	 * @param restoreSnapshots
 	 */
-	public void setRestoreSnapshots(boolean restoreSnapshots);
+	void setRestoreSnapshots(boolean restoreSnapshots);
 
 	/**
 	 * List of player names joined in the arena. This does not mean they are playing, it means
 	 * they are registered in the arena, for example in the lobby.
 	 */
-	public Collection<Player> getPlayers();
+	Collection<Player> getPlayers();
 
 	/**
 	 * Check if a player is joined in the arena
@@ -126,7 +126,7 @@ public interface Arena {
 	 * @param player the player to check
 	 * @return
 	 */
-	public boolean isJoined(Player player);
+	boolean isJoined(Player player);
 
 	/**
 	 * Check if a player is joined in the arena
@@ -134,68 +134,68 @@ public interface Arena {
 	 * @param player the player to check
 	 * @return
 	 */
-	public boolean isJoined(String playerName);
+	boolean isJoined(String playerName);
 
 	/**
 	 * The game state.
 	 */
-	public ArenaState getState();
+	ArenaState getState();
 
 	/**
 	 * The arena's settings that user can alter.
 	 */
-	public ArenaSettings getSettings();
+	ArenaSettings getSettings();
 
 	/**
 	 * The internal data from database.
 	 */
-	public ArenaData getData();
+	ArenaData getData();
 
 	/**
 	 * The thing for sending messages.
 	 */
-	public ArenaMessenger getMessenger();
+	ArenaMessenger getMessenger();
 
 	/**
 	 * Snapshot is all the blocks in the arena in a certain phase.
 	 */
-	public ArenaSnapshot getSnapshot();
+	ArenaSnapshot getSnapshot();
 
 	/**
 	 * The setup manager, for example spawn points or supply points, etc.
 	 */
-	public Setup getSetup();
+	Setup getSetup();
 
 	/**
 	 * Phases are levels within the arena
 	 */
-	public ArenaPhase getPhase();
+	ArenaPhase getPhase();
 
 	/**
 	 * Has the stopping been initiated in the pipeline?
 	 */
-	public boolean isStopping();
+	boolean isStopping();
 
 	/**
 	 * How much seconds is left before the finish?
 	 *
 	 * @return the remaining time, in seconds
 	 */
-	public int getRemainingSeconds();
+	int getRemainingSeconds();
 
 	/**
 	 * How many monsters that can be killed are in the arena?
 	 *
 	 * @return the alive monsters count
 	 */
-	public int getAliveMonsters();
+	int getAliveMonsters();
 
 	/**
 	 * The plugin that owns this arena.
 	 *
 	 * @return the plugin
 	 */
-	public ArenaPlugin getPlugin();
+	ArenaPlugin getPlugin();
 
 	// ----------------------------------------------------------------------------------------
 	// Automatic API methods - you should listen to events in bukkit and call them here manually
@@ -204,7 +204,7 @@ public interface Arena {
 	/**
 	 * Called automatically when the arena is finished loading from its file on startup.
 	 */
-	public void onPostLoad();
+	void onPostLoad();
 
 	/**
 	 * Called on a player vs. player fight
@@ -214,7 +214,7 @@ public interface Arena {
 	 * @param victim, the damaged
 	 * @param damage, damage dealt
 	 */
-	public void onPlayerPvP(EntityDamageByEntityEvent event, Player damager, Player victim, double damage);
+	void onPlayerPvP(EntityDamageByEntityEvent event, Player damager, Player victim, double damage);
 
 	/**
 	 * Called when a player attacks a monster/animal
@@ -223,7 +223,7 @@ public interface Arena {
 	 * @param victim, the damaged monster
 	 * @param damage, damage dealth
 	 */
-	public void onPlayerPvE(Player damager, LivingEntity victim, double damage);
+	void onPlayerPvE(Player damager, LivingEntity victim, double damage);
 
 	/**
 	 * Called when player is attacked by an entity
@@ -233,7 +233,7 @@ public interface Arena {
 	 * @param source, the source
 	 * @param damage, damage dealt
 	 */
-	public void onPlayerDamage(EntityDamageByEntityEvent event, Player player, Entity source, double damage);
+	void onPlayerDamage(EntityDamageByEntityEvent event, Player player, Entity source, double damage);
 
 	/**
 	 * Called when player is damaged by block
@@ -242,7 +242,7 @@ public interface Arena {
 	 * @param player the player
 	 * @param damage damage dealt
 	 */
-	public void onPlayerBlockDamage(EntityDamageByBlockEvent event, Player player, double damage);
+	void onPlayerBlockDamage(EntityDamageByBlockEvent event, Player player, double damage);
 
 	/**
 	 * Called when a player is murdered
@@ -250,7 +250,7 @@ public interface Arena {
 	 * @param player the player
 	 * @param killer the killer
 	 */
-	public void onPlayerDeath(Player player, Player killer);
+	void onPlayerDeath(Player player, Player killer);
 
 	/**
 	 * Called when a player dies and we cannot detect the killer
@@ -258,7 +258,7 @@ public interface Arena {
 	 * @param player the player
 	 * @param cause the cause
 	 */
-	public void onPlayerDeath(Player player, DeathCause cause);
+	void onPlayerDeath(Player player, DeathCause cause);
 
 	/**
 	 * Called on player block interaction
@@ -267,7 +267,7 @@ public interface Arena {
 	 * @param clickedBlock the clicked block
 	 * @param hand the hand item
 	 */
-	public void onPlayerClick(Player player, Block clickedBlock, ItemStack hand);
+	void onPlayerClick(Player player, Block clickedBlock, ItemStack hand);
 
 	/**
 	 * Called when a player clicks the air, useful for tools
@@ -275,28 +275,28 @@ public interface Arena {
 	 * @param player, the player
 	 * @param hand, the hand item
 	 */
-	public void onPlayerClickAir(Player player, ItemStack hand);
+	void onPlayerClickAir(Player player, ItemStack hand);
 
 	/**
 	 * Called when a player places a block
 	 *
 	 * @param event, the event
 	 */
-	public void onPlayerBlockPlace(BlockPlaceEvent event);
+	void onPlayerBlockPlace(BlockPlaceEvent event);
 
 	/**
 	 * Called when a player destroys a block
 	 *
 	 * @param event, the event
 	 */
-	public void onPlayerBlockBreak(BlockBreakEvent event);
+	void onPlayerBlockBreak(BlockBreakEvent event);
 
 	/**
 	 * Called when a player is respawned
 	 *
 	 * @param event, the player
 	 */
-	public void onPlayerRespawn(PlayerRespawnEvent event);
+	void onPlayerRespawn(PlayerRespawnEvent event);
 
 	/**
 	 * Called when a player picks up the exp item
@@ -304,47 +304,47 @@ public interface Arena {
 	 * @param event, the player
 	 * @param expItem, the exp item
 	 */
-	public void onPlayerPickupTag(PlayerPickupItemEvent event, ExpItem expItem);
+	void onPlayerPickupTag(PlayerPickupItemEvent event, ExpItem expItem);
 
 	/**
 	 * Called on entity spawn
 	 *
 	 * @param event, the event
 	 */
-	public void onEntitySpawn(EntitySpawnEvent event);
+	void onEntitySpawn(EntitySpawnEvent event);
 
 	/**
 	 * Called on entity target
 	 *
 	 * @param event, the event
 	 */
-	public void onEntityTarget(EntityTargetEvent event);
+	void onEntityTarget(EntityTargetEvent event);
 
 	/**
 	 * Called on entity death
 	 *
 	 * @param event, the event
 	 */
-	public void onEntityDeath(EntityDeathEvent event);
+	void onEntityDeath(EntityDeathEvent event);
 
 	/**
 	 * Called when a new map snapshot is restored
 	 *
 	 * @param newState, the current arena snapshot stage
 	 */
-	public void onSnapshotUpdate(ArenaSnapshotStage newState);
+	void onSnapshotUpdate(ArenaSnapshotStage newState);
 
 	/**
 	 * Called when a projectile is launched
 	 *
 	 * @param event, the event
 	 */
-	public void onProjectileLaunch(ProjectileLaunchEvent event);
+	void onProjectileLaunch(ProjectileLaunchEvent event);
 
 	/**
 	 * Called when projectile hits something
 	 *
 	 * @param event, the event
 	 */
-	public void onProjectileHit(ProjectileHitEvent event);
+	void onProjectileHit(ProjectileHitEvent event);
 }

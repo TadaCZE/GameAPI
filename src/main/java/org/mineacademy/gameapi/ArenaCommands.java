@@ -91,7 +91,7 @@ public final class ArenaCommands {
 	 */
 	public void runAsPlayer(Arena arena, Player player) {
 		for (final String cmd : playerCommands) {
-			final String coloredCommand = GameAPIUtil.colorize( arena.getMessenger().replaceVariables(cmd.replace("{player}", player.getName())) );
+			final String coloredCommand = GameAPIUtil.colorize(arena.getMessenger().replaceVariables(cmd.replace("{player}", player.getName())));
 
 			if (cmd.startsWith("@tell "))
 				arena.getMessenger().tell(player, coloredCommand.replaceFirst("@tell ", ""));
@@ -112,7 +112,7 @@ public final class ArenaCommands {
 	 */
 	public void runAsConsole(Arena arena, Player player) {
 		for (final String cmd : consoleCommands) {
-			final String coloredCommand = GameAPIUtil.colorize( arena.getMessenger().replaceVariables(cmd.replace("{player}", player.getName())) );
+			final String coloredCommand = GameAPIUtil.colorize(arena.getMessenger().replaceVariables(cmd.replace("{player}", player.getName())));
 
 			if (cmd.startsWith("@tell "))
 				arena.getMessenger().tell(player, coloredCommand.replaceFirst("@tell ", ""));

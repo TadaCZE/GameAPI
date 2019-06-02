@@ -12,5 +12,5 @@ public interface Lobby {
 	 *
 	 * @return the location, or null if not exists
 	 */
-	public Location getLocation();
+	Location getLocation();
 }

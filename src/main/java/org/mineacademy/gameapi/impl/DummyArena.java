@@ -252,7 +252,7 @@ public abstract class DummyArena implements Arena {
 	private final boolean callEvent(org.bukkit.event.Event event) {
 		Bukkit.getPluginManager().callEvent(event);
 
-		return event instanceof Cancellable ? !((Cancellable)event).isCancelled() : true;
+		return event instanceof Cancellable ? !((Cancellable) event).isCancelled() : true;
 	}
 
 	@Override

@@ -12,33 +12,33 @@ public interface Reward {
 	/**
 	 * The reward type
 	 */
-	public RewardType getType();
+	RewardType getType();
 
 	/**
 	 * The Nugget costs to obtain it
 	 *
 	 * @return the cost
 	 */
-	public int getCost();
+	int getCost();
 
 	/**
 	 * Set a new Nugget cost to obtain it
 	 *
 	 * @param cost the new cost
 	 */
-	public void setCost(int cost);
+	void setCost(int cost);
 
 	/**
 	 * Get the item for this reward
 	 *
 	 * @return the itemstack
 	 */
-	public ItemStack getItem();
+	ItemStack getItem();
 
 	/**
 	 * Set the item for this reward
 	 *
 	 * @param item new item
 	 */
-	public void setItem(ItemStack item);
+	void setItem(ItemStack item);
 }

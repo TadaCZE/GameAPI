@@ -15,39 +15,39 @@ public interface Upgrade {
 	/**
 	 * The name of this upgrade.
 	 */
-	public String getName();
+	String getName();
 
 	/**
 	 * The permission to buy this upgrade.
 	 */
-	public String getPermission();
+	String getPermission();
 
 	/**
 	 * From which phase is this upgrade available?
 	 */
-	public int getUnlockPhase();
+	int getUnlockPhase();
 
 	/**
 	 * Custom items to give to the boy.
 	 */
-	public ItemStack[] getItems();
+	ItemStack[] getItems();
 
 	/**
 	 * Set the new items for this upgrade
 	 *
 	 * @param items the new items
 	 */
-	public void setItems(ItemStack[] items);
+	void setItems(ItemStack[] items);
 
 	/**
 	 * Gives the upgrade to the player
 	 *
 	 * @param player the player
 	 */
-	public void giveToPlayer(Player player);
+	void giveToPlayer(Player player);
 
 	/**
 	 * Permanently removes the team
 	 */
-	public void deleteUpgrade();
+	void deleteUpgrade();
 }

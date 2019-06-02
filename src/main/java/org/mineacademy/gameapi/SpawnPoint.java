@@ -14,12 +14,12 @@ public interface SpawnPoint extends ConfigSerializable {
 	 *
 	 * @return the location
 	 */
-	public Location getLocation();
+	Location getLocation();
 
 	/**
 	 * Get this spawn point type
 	 *
 	 * @return the type
 	 */
-	public SpawnPointType getType();
+	SpawnPointType getType();
 }

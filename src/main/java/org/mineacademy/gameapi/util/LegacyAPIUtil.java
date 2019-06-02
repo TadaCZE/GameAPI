@@ -44,7 +44,7 @@ public class LegacyAPIUtil {
 			return Bukkit.getOnlinePlayers();
 
 		try {
-			return Arrays.asList( (Player[]) getPlayersMethod.invoke(null) );
+			return Arrays.asList((Player[]) getPlayersMethod.invoke(null));
 
 		} catch (final ReflectiveOperationException ex) {
 

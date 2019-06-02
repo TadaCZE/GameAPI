@@ -38,7 +38,7 @@ public final class GameAPIPlugin extends JavaPlugin {
 	 *
 	 * @return this instance
 	 */
-	public static final GameAPIPlugin getInstance() {
+	public static GameAPIPlugin getInstance() {
 		return (GameAPIPlugin) Bukkit.getPluginManager().getPlugin("GameAPI");
 	}
 }

@@ -16,14 +16,14 @@ public interface ArenaRegion extends ConfigSerializable {
 	 *
 	 * @return the point, or null if not set
 	 */
-	public Location getPrimary();
+	Location getPrimary();
 
 	/**
 	 * Get the secondary region point
 	 *
 	 * @return the point, or null if not set
 	 */
-	public Location getSecondary();
+	Location getSecondary();
 
 	/**
 	 * Get the estimated center point of this region
@@ -32,7 +32,7 @@ public interface ArenaRegion extends ConfigSerializable {
 	 *
 	 * @return the center point, or null if region is incomplete
 	 */
-	public default Location getCenter() {
+	default Location getCenter() {
 		return getPrimary() != null && getSecondary() != null ? new Location(
 				getPrimary().getWorld(),
 				(getPrimary().getX() + getSecondary().getX()) / 2,
@@ -45,14 +45,14 @@ public interface ArenaRegion extends ConfigSerializable {
 	 *
 	 * @return all region blocks
 	 */
-	public Block[] getBlocks();
+	Block[] getBlocks();
 
 	/**
 	 * Get all entities (live) in the arena region
 	 *
 	 * @return all alive entities
 	 */
-	public Entity[] getEntities();
+	Entity[] getEntities();
 
 	/**
 	 * Get the region world
@@ -60,7 +60,7 @@ public interface ArenaRegion extends ConfigSerializable {
 	 * @return the world, first checks primary region, if that is null than attempts to get the secondary,
 	 *         if both are null then returns null
 	 */
-	public default World getWorld() {
+	default World getWorld() {
 		return getPrimary() != null ? getPrimary().getWorld() : getSecondary() != null ? getSecondary().getWorld() : null;
 	}
 
@@ -70,14 +70,14 @@ public interface ArenaRegion extends ConfigSerializable {
 	 * @param loc the location
 	 * @return true if the location is in this arena
 	 */
-	public boolean isWithin(Location loc);
+	boolean isWithin(Location loc);
 
 	/**
 	 * Is this region having both points set?
 	 *
 	 * @return true if both primary and secondary points are set
 	 */
-	public default boolean isComplete() {
+	default boolean isComplete() {
 		return getPrimary() != null && getSecondary() != null;
 	}
 }

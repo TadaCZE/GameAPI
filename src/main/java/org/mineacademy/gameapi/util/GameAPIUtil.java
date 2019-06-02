@@ -13,7 +13,7 @@ public final class GameAPIUtil {
 	 * @param message the message
 	 * @return the colorized message.
 	 */
-	public static final String colorize(String message) {
+	public static String colorize(String message) {
 		return ChatColor.translateAlternateColorCodes('&', message);
 	}
 
@@ -22,7 +22,7 @@ public final class GameAPIUtil {
 	 *
 	 * @param message the title of the message for clarity
 	 */
-	public static final void trace(String message) {
+	public static void trace(String message) {
 		System.out.println("------------------------------------------------------------------------------------------------------------");
 		System.out.println(message);
 		System.out.println("");

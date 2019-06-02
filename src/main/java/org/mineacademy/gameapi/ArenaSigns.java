@@ -16,7 +16,7 @@ public interface ArenaSigns {
 	 * @param loc the location
 	 * @return the sign, or null
 	 */
-	public ArenaSign getSignAt(Location loc);
+	ArenaSign getSignAt(Location loc);
 
 	/**
 	 * Get all stored signs of a certain type
@@ -24,7 +24,7 @@ public interface ArenaSigns {
 	 * @param type the sign type
 	 * @return the signs
 	 */
-	public List<ArenaSign> getSigns(SignType type);
+	List<ArenaSign> getSigns(SignType type);
 
 	/**
 	 * Calls {@link ArenaSign#updateState()} for all signs of a certain type in an arena
@@ -32,5 +32,5 @@ public interface ArenaSigns {
 	 * @param type the sign type
 	 * @param arena the arena
 	 */
-	public void updateSigns(SignType type, Arena arena);
+	void updateSigns(SignType type, Arena arena);
 }

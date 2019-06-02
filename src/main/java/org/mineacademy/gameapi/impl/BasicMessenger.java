@@ -49,8 +49,8 @@ public final class BasicMessenger implements ArenaMessenger {
 	 * @param message the message
 	 */
 	@Override
-	public final void tell(Player player, String message) {
-		player.sendMessage(replaceVariables(message.replace("{player}", player.getName())) );
+	public void tell(Player player, String message) {
+		player.sendMessage(replaceVariables(message.replace("{player}", player.getName())));
 	}
 
 	/**
@@ -59,7 +59,7 @@ public final class BasicMessenger implements ArenaMessenger {
 	 * @param message the message
 	 */
 	@Override
-	public final void broadcast(String message) {
+	public void broadcast(String message) {
 		message = replaceVariables(message);
 
 		for (final CommandSender sender : getRecipients())
@@ -72,7 +72,7 @@ public final class BasicMessenger implements ArenaMessenger {
 	 * @param message the message
 	 */
 	@Override
-	public final void broadcastBar(String message) {
+	public void broadcastBar(String message) {
 		final BaseComponent[] comp = TextComponent.fromLegacyText(replaceVariables(message));
 
 		try {
@@ -116,19 +116,18 @@ public final class BasicMessenger implements ArenaMessenger {
 	 * @return the replaced message
 	 */
 	@Override
-	public final String replaceVariables(String message) {
+	public String replaceVariables(String message) {
 		return ChatColor.translateAlternateColorCodes('&', message
 				.replace("{arena}", arena.getName())
 				.replace("{state}", arena.getState().toString().toLowerCase())
 				.replace("{phase}", arena.getPhase().getCurrent() + "")
 				.replace("{players}", getRecipients().size() + "")
 				.replace("{maxPlayers}", arena.getSettings().getMaximumPlayers() + "")
-				.replace("{minPlayers}", arena.getSettings().getMinimumPlayers() + "")
-				);
+				.replace("{minPlayers}", arena.getSettings().getMinimumPlayers() + ""));
 	}
 
 	// Get all recipients eligible for messaging
-	private final Collection<? extends Player> getRecipients() {
+	private Collection<? extends Player> getRecipients() {
 		switch (target) {
 			case ARENA:
 				return arena.getPlayers();
@@ -142,7 +141,8 @@ public final class BasicMessenger implements ArenaMessenger {
 			case SERVER:
 				return LegacyAPIUtil.getOnlinePlayers();
 
-			default: throw new RuntimeException("Unhandled target " + target);
+			default:
+				throw new RuntimeException("Unhandled target " + target);
 		}
 	}
 }

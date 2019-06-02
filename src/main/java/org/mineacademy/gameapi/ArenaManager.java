@@ -17,14 +17,14 @@ public interface ArenaManager {
 	 *
 	 * @return a copy of all arenas
 	 */
-	public Set<Arena> getArenas();
+	Set<Arena> getArenas();
 
 	/**
 	 * Get a copy of all arena names
 	 *
 	 * @return a copy of all arena names
 	 */
-	public List<String> getAvailable();
+	List<String> getAvailable();
 
 	/**
 	 * Get a player's arena, or null if none
@@ -32,7 +32,7 @@ public interface ArenaManager {
 	 * @param player the player
 	 * @return an arena, or null if not found
 	 */
-	public Arena findArena(Player player);
+	Arena findArena(Player player);
 
 	/**
 	 * Get an arena, or null if none
@@ -40,7 +40,7 @@ public interface ArenaManager {
 	 * @param name the arena's name
 	 * @return an arena, or null if not found
 	 */
-	public Arena findArena(String arenaName);
+	Arena findArena(String arenaName);
 
 	/**
 	 * Get arena at the location, or null if none
@@ -48,7 +48,7 @@ public interface ArenaManager {
 	 * @param loc the location
 	 * @return an arena, or null if not found
 	 */
-	public Arena findArena(Location loc);
+	Arena findArena(Location loc);
 
 	/**
 	 * Wrap a sign into an arena sign, if exist
@@ -56,7 +56,7 @@ public interface ArenaManager {
 	 * @param sign the sign
 	 * @return an arena sign representation, or null if none
 	 */
-	public ArenaSign findSign(Sign sign);
+	ArenaSign findSign(Sign sign);
 
 	/**
 	 * Finds the arena that the player is editing
@@ -64,7 +64,7 @@ public interface ArenaManager {
 	 * @param player the player
 	 * @return the edited arena or null if none
 	 */
-	public Arena findEditedArena(Player player);
+	Arena findEditedArena(Player player);
 
 	/**
 	 * Get if the player is playing in any arena
@@ -72,7 +72,7 @@ public interface ArenaManager {
 	 * @param player the player
 	 * @return true if player has any arena
 	 */
-	public boolean isPlaying(Player player);
+	boolean isPlaying(Player player);
 
 	/**
 	 * Get if the player is editing any arena
@@ -80,5 +80,5 @@ public interface ArenaManager {
 	 * @param player the player
 	 * @return true if player is editing any arena
 	 */
-	public boolean isEditing(Player player);
+	boolean isEditing(Player player);
 }

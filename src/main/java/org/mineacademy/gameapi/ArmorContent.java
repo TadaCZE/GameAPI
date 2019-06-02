@@ -14,28 +14,28 @@ public interface ArmorContent extends ConfigSerializable {
 	 *
 	 * @return the item or null if not set
 	 */
-	public ItemStack getHelmet();
+	ItemStack getHelmet();
 
 	/**
 	 * Get the chestplate
 	 *
 	 * @return the item or null if not set
 	 */
-	public ItemStack getChestplate();
+	ItemStack getChestplate();
 
 	/**
 	 * Get the leggings
 	 *
 	 * @return the item or null if not set
 	 */
-	public ItemStack getLeggings();
+	ItemStack getLeggings();
 
 	/**
 	 * Get the boots
 	 *
 	 * @return the item or null if not set
 	 */
-	public ItemStack getBoots();
+	ItemStack getBoots();
 
 	/**
 	 * Get the item at a certain position of the array
@@ -49,12 +49,12 @@ public interface ArmorContent extends ConfigSerializable {
 	 * @return the item or null if not set
 	 */
 	@Deprecated
-	public ItemStack getByOrder(int order);
+	ItemStack getByOrder(int order);
 
 	/**
 	 * Give the armor content to a player
 	 *
 	 * @param player the player to give to
 	 */
-	public void giveTo(Player player);
+	void giveTo(Player player);
 }

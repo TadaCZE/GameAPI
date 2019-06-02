@@ -28,7 +28,7 @@ public class SerializeUtil {
 			return null;
 
 		if (object instanceof ConfigSerializable)
-			return serialize( ((ConfigSerializable) object).serialize() );
+			return serialize(((ConfigSerializable) object).serialize());
 
 		else if (object instanceof Location)
 			return serializeLoc((Location) object);
@@ -40,7 +40,7 @@ public class SerializeUtil {
 			final List<Object> serialized = new ArrayList<>();
 
 			for (final Object element : (Iterable<?>) object)
-				serialized.add( serialize(element) );
+				serialized.add(serialize(element));
 
 			return serialized;
 		}
@@ -55,7 +55,7 @@ public class SerializeUtil {
 	 * @return the string representation with world, block XYZ coordinates, pitch and yaw, comma separated
 	 */
 	public static final String serializeLoc(Location loc) {
-		return (loc.getWorld().getName() + ", " + loc.getBlockX() + ", " + loc.getBlockY() + ", " + loc.getBlockZ()) + (loc.getPitch() != 0F || loc.getYaw() != 0F ? ", " + loc.getYaw() + ", " + loc.getPitch() : "");
+		return loc.getWorld().getName() + ", " + loc.getBlockX() + ", " + loc.getBlockY() + ", " + loc.getBlockZ() + (loc.getPitch() != 0F || loc.getYaw() != 0F ? ", " + loc.getYaw() + ", " + loc.getPitch() : "");
 	}
 
 	/**
@@ -90,8 +90,8 @@ public class SerializeUtil {
 		final World bukkitWorld = Bukkit.getWorld(world);
 		Validate.isTrue(Bukkit.getWorld(world) != null, "Location with invalid world '" + world + "': " + object);
 
-		final int x = Integer.parseInt( parts[1] ), y = Integer.parseInt( parts[2] ), z = Integer.parseInt( parts[3] );
-		final float yaw = Float.parseFloat( parts.length == 6 ? parts[4] : "0" ), pitch = Float.parseFloat( parts.length == 6 ? parts[5] : "0" );
+		final int x = Integer.parseInt(parts[1]), y = Integer.parseInt(parts[2]), z = Integer.parseInt(parts[3]);
+		final float yaw = Float.parseFloat(parts.length == 6 ? parts[4] : "0"), pitch = Float.parseFloat(parts.length == 6 ? parts[5] : "0");
 
 		return new Location(bukkitWorld, x, y, z, yaw, pitch);
 	}

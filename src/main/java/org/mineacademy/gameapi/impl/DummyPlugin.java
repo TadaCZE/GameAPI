@@ -36,7 +36,7 @@ public final class DummyPlugin implements ArenaPlugin {
 	 */
 	@Deprecated
 	@Override
-	public final ArenaManager getArenas() {
+	public ArenaManager getArenas() {
 		throw new UnsupportedOperationException("Use ArenaRegistry to get ArenaManager");
 	}
 }

@@ -186,7 +186,7 @@ public class ArenaRegistry {
 	/**
 	 * An arena manager that only returns arenas for a specific {@link ArenaPlugin}
 	 */
-	@RequiredArgsConstructor(access=AccessLevel.PRIVATE)
+	@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 	public static final class SpecificArenaManager extends CommonArenaManager {
 
 		/**
@@ -201,7 +201,7 @@ public class ArenaRegistry {
 		 * @return all arenas from {@link #plugin}
 		 */
 		@Override
-		public final Set<Arena> getArenas() {
+		public Set<Arena> getArenas() {
 			final HashSet<Arena> set = new HashSet<>(super.getArenas());
 
 			// Remove all arenas not owned by our plugin
@@ -244,7 +244,7 @@ public class ArenaRegistry {
 		public final List<String> getAvailable() {
 			final List<String> all = new ArrayList<>();
 
-			getArenas().forEach( (a) -> all.add(a.getName()) );
+			getArenas().forEach((a) -> all.add(a.getName()));
 
 			return all;
 		}

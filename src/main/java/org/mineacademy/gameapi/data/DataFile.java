@@ -93,7 +93,8 @@ public class DataFile {
 	 *
 	 * Please mind that the configuration may not contain (all) values.
 	 */
-	protected void onDataLoad() {}
+	protected void onDataLoad() {
+	}
 
 	/**
 	 * Add's a path prefix, so when you call getX(path) it will be automatically added to the path.
@@ -346,7 +347,7 @@ public class DataFile {
 		if (tempPathPrefix != null)
 			path += tempPathPrefix + ".";
 
-		path+= myPath;
+		path += myPath;
 		path = path.endsWith(".") ? path.substring(0, path.length() - 1) : path;
 
 		return path;

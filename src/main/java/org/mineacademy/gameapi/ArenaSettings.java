@@ -330,5 +330,4 @@ public interface ArenaSettings {
 	 */
 	int getKillHeight();
 
-
 }

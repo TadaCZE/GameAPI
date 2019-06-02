@@ -13,17 +13,17 @@ public interface ArenaPhase {
 	 *
 	 * @return the current phase
 	 */
-	public int getCurrent();
+	int getCurrent();
 
 	/**
 	 * Starts the timer that will enter next phases automatically
 	 */
-	public void startTimer();
+	void startTimer();
 
 	/**
 	 * Enter next phase manually
 	 */
-	public void onNextPhase();
+	void onNextPhase();
 
 	/**
 	 * Called when the timer that enter next phases ticks but does not enter next phase yet.
@@ -35,12 +35,12 @@ public interface ArenaPhase {
 	 *
 	 * Typically, this is called automatically from your time
 	 */
-	public void onTimerTick();
+	void onTimerTick();
 
 	/**
 	 * Stops and resets the phase timer.
 	 *
 	 * Typically, this only resets boss bar. Monsters are not removed, this is handled within the arena on its stop.
 	 */
-	public void stopAndReset();
+	void stopAndReset();
 }

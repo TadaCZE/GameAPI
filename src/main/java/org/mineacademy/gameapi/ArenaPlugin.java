@@ -18,19 +18,19 @@ public interface ArenaPlugin {
 	 *
 	 * @return the arena manager
 	 */
-	public ArenaManager getArenas();
+	ArenaManager getArenas();
 
 	/**
 	 * Get the name of this plugin
 	 *
 	 * @return the name of this plugin
 	 */
-	public String getName();
+	String getName();
 
 	/**
 	 * Get the {@link Plugin} representation
 	 *
 	 * @return the plugin
 	 */
-	public Plugin getPlugin();
+	Plugin getPlugin();
 }

@@ -15,14 +15,14 @@ public interface Team extends Iconable {
 	 *
 	 * @return the teams name
 	 */
-	public String getName();
+	String getName();
 
 	/**
 	 * Get {@link #getChatColor()} + {@link #getName()}
 	 *
 	 * @return the colored name
 	 */
-	public String getFormattedName();
+	String getFormattedName();
 
 	/**
 	 * Get the leather color of the team
@@ -30,14 +30,14 @@ public interface Team extends Iconable {
 	 *
 	 * @return the leather color
 	 */
-	public DyeColor getColor();
+	DyeColor getColor();
 
 	/**
 	 * Set the dye color of the team
 	 *
 	 * @param color the new color of the team
 	 */
-	public void setColor(DyeColor color);
+	void setColor(DyeColor color);
 
 	/**
 	 * Get the chat color of the team
@@ -46,21 +46,21 @@ public interface Team extends Iconable {
 	 *
 	 * @return the chat color
 	 */
-	public ChatColor getChatColor();
+	ChatColor getChatColor();
 
 	/**
 	 * Get the permission to join this team
 	 *
 	 * @return the join permission
 	 */
-	public String getPermission();
+	String getPermission();
 
 	/**
 	 * Set the permission to join this team
 	 *
 	 * @param permission the join permission
 	 */
-	public void setPermission(String permission);
+	void setPermission(String permission);
 
 	/**
 	 * Check if the player is eligible for obtaining this team
@@ -69,17 +69,17 @@ public interface Team extends Iconable {
 	 * @param player the player
 	 * @return true if player can obtain this team
 	 */
-	public boolean mayObtain(Player player);
+	boolean mayObtain(Player player);
 
 	/**
 	 * Gives the player the colored leather helmet
 	 *
 	 * @param player the player to give to
 	 */
-	public void giveTeamHelmet(Player player);
+	void giveTeamHelmet(Player player);
 
 	/**
 	 * Permanently remove the team
 	 */
-	public void deleteTeam();
+	void deleteTeam();
 }

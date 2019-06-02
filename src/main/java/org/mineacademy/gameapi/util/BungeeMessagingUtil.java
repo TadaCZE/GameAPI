@@ -27,16 +27,16 @@ public class BungeeMessagingUtil {
 			Objects.requireNonNull(data, "Bungee object in array is null! Array: " + StringUtils.join(datas));
 
 			if (data instanceof Integer)
-				out.writeInt( (Integer) data);
+				out.writeInt((Integer) data);
 
 			else if (data instanceof Double)
-				out.writeDouble( (Double) data);
+				out.writeDouble((Double) data);
 
 			else if (data instanceof Boolean)
-				out.writeBoolean( (Boolean) data);
+				out.writeBoolean((Boolean) data);
 
 			else if (data instanceof String)
-				out.writeUTF( (String) data);
+				out.writeUTF((String) data);
 
 			else
 				throw new RuntimeException("Unknown type of data: " + data + " (" + data.getClass().getSimpleName() + ")");

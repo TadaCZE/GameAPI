@@ -1,5 +1,7 @@
 package org.mineacademy.gameapi;
 
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.commons.lang.Validate;
@@ -34,7 +36,7 @@ public class ArenaMaterialAllower {
 	 *
 	 * @param materials
 	 */
-	public ArenaMaterialAllower(Set<Material> materials) {
+	public ArenaMaterialAllower(Collection<Material> materials) {
 		this(materials, AllowMode.SPECIFIC);
 	}
 
@@ -44,8 +46,8 @@ public class ArenaMaterialAllower {
 	 * @param materials
 	 * @param mode
 	 */
-	private ArenaMaterialAllower(Set<Material> materials, AllowMode mode) {
-		this.materials = materials;
+	private ArenaMaterialAllower(Collection<Material> materials, AllowMode mode) {
+		this.materials = new HashSet<>(materials);
 		this.mode = mode;
 
 		if (materials == null)

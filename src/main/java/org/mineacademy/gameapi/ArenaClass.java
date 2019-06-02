@@ -17,14 +17,14 @@ public interface ArenaClass extends Iconable {
 	 *
 	 * @return the name of this class
 	 */
-	public String getName();
+	String getName();
 
 	/**
 	 * The permission to access this class
 	 *
 	 * @return the permission, null if none
 	 */
-	public String getPermission();
+	String getPermission();
 
 	/**
 	 * Check if the player may obtain this class. Typically we check for {@link #getPermission()} here.
@@ -32,7 +32,7 @@ public interface ArenaClass extends Iconable {
 	 * @param player the player
 	 * @return true if player is eligible for this class
 	 */
-	public boolean mayObtain(Player player);
+	boolean mayObtain(Player player);
 
 	/**
 	 * Give this class (and all items) to the player, depending on his tier mode
@@ -40,7 +40,7 @@ public interface ArenaClass extends Iconable {
 	 * @param player the player
 	 * @param mode the mode
 	 */
-	public void giveToPlayer(Player player, TierMode mode);
+	void giveToPlayer(Player player, TierMode mode);
 
 	/**
 	 * Get all tiers in this class. A tier represents how advanced or good the items/armor should be.
@@ -49,7 +49,7 @@ public interface ArenaClass extends Iconable {
 	 *
 	 * @return the tiers installed for this class
 	 */
-	public int getTiers();
+	int getTiers();
 
 	/**
 	 * Get the minimum valid tier. Since you can add/remove tiers in the game, it is easy to mess up
@@ -58,7 +58,7 @@ public interface ArenaClass extends Iconable {
 	 * @param level the tier to get, or it will return lower in case it does not exist
 	 * @return the given tier, or the closes minimum that exists
 	 */
-	public ClassTier getMinimumTier(int level);
+	ClassTier getMinimumTier(int level);
 
 	/**
 	 * Get a class tier, or null if not present
@@ -66,21 +66,21 @@ public interface ArenaClass extends Iconable {
 	 * @param level the tier level
 	 * @return the tier or null
 	 */
-	public ClassTier getTier(int level);
+	ClassTier getTier(int level);
 
 	/**
 	 * Add or update class tier. The tier level is found in the wrapper
 	 *
 	 * @param tier the tier
 	 */
-	public void addOrUpdateTier(ClassTier tier);
+	void addOrUpdateTier(ClassTier tier);
 
 	/**
 	 * Remove a class tier
 	 *
 	 * @param tier the tier
 	 */
-	public void removeTier(ClassTier tier);
+	void removeTier(ClassTier tier);
 
 	/**
 	 * Since we store tier settings in a separate file, return them here for clarity
@@ -88,17 +88,17 @@ public interface ArenaClass extends Iconable {
 	 * @param level the tier level
 	 * @return the settings of this tier level, or null
 	 */
-	public TierSettings getTierSettings(int level);
+	TierSettings getTierSettings(int level);
 
 	/**
 	 * Is this class valid?
 	 *
 	 * @return true if the first tier is valid
 	 */
-	public boolean isValid();
+	boolean isValid();
 
 	/**
 	 * Remove the class permanently
 	 */
-	public void deleteClass();
+	void deleteClass();
 }

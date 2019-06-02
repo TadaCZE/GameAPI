@@ -21,7 +21,7 @@ public abstract class ArenaSnapshot {
 	/**
 	 * Represents the arena associated with this snapshot.
 	 */
-	@Getter(value=AccessLevel.PROTECTED)
+	@Getter(value = AccessLevel.PROTECTED)
 	private final Arena arena;
 
 	/**

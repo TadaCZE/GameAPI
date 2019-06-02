@@ -14,8 +14,8 @@ public final class PlayerListener implements Listener {
 	/**
 	 * Register players' Nuggets.
 	 */
-	@EventHandler(priority=EventPriority.LOWEST)
-	public final void onPlayerJoin(PlayerJoinEvent e) {
+	@EventHandler(priority = EventPriority.LOWEST)
+	public void onPlayerJoin(PlayerJoinEvent e) {
 
 		// Create new data if doesn't exists.
 		PlayerData.getFor(e.getPlayer());

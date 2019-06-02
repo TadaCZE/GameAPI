@@ -7,5 +7,5 @@ import org.bukkit.boss.BarColor;
  *
  */
 public enum ArenaBarColor {
-	PINK,  BLUE,  RED,  GREEN,  YELLOW,  PURPLE,  WHITE;
+	PINK, BLUE, RED, GREEN, YELLOW, PURPLE, WHITE;
 }

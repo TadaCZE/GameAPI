@@ -15,7 +15,7 @@ public interface TeamedArena extends Arena {
 	 *
 	 * @return list of all teams
 	 */
-	public Set<Team> getTeams();
+	Set<Team> getTeams();
 
 	/**
 	 * Get the team of the player
@@ -23,7 +23,7 @@ public interface TeamedArena extends Arena {
 	 * @param player the player
 	 * @return the players team
 	 */
-	public Team getTeam(Player player);
+	Team getTeam(Player player);
 
 	/**
 	 * Get the original list of players who started to play this arena in a team
@@ -31,7 +31,7 @@ public interface TeamedArena extends Arena {
 	 * @param team the team
 	 * @return the join players list
 	 */
-	public List<Player> getStartingTeamPlayers(Team team);
+	List<Player> getStartingTeamPlayers(Team team);
 
 	/**
 	 * Get the alive and current players in a team
@@ -39,7 +39,7 @@ public interface TeamedArena extends Arena {
 	 * @param team the team
 	 * @return the alive remaining players
 	 */
-	public List<Player> getTeamPlayers(Team team);
+	List<Player> getTeamPlayers(Team team);
 
 	/**
 	 * Give a team to a player
@@ -47,5 +47,5 @@ public interface TeamedArena extends Arena {
 	 * @param player the player
 	 * @param team the team
 	 */
-	public void assignTeam(Player player, Team team);
+	void assignTeam(Player player, Team team);
 }

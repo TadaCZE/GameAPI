@@ -12,14 +12,14 @@ public interface ArenaSnapshotStage {
 	 *
 	 * @return the id
 	 */
-	public int getId();
+	int getId();
 
 	/**
 	 * Get the formated name representation
 	 *
 	 * @return the name
 	 */
-	public String getFormattedName();
+	String getFormattedName();
 
 	/**
 	 * Get the file template name, typically having {arena}
@@ -27,5 +27,5 @@ public interface ArenaSnapshotStage {
 	 *
 	 * @return the arena name
 	 */
-	public String getFileName();
+	String getFileName();
 }
