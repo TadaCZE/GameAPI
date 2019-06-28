@@ -108,7 +108,6 @@ public class InventoryStorageUtil {
 			s.setInvulnerable(player.isInvulnerable());
 			s.setSilent(player.isSilent());
 			s.setGlowing(player.isGlowing());
-			s.setScoreboardTags(player.getScoreboardTags());
 
 		} catch (final NoSuchMethodError err) {
 		}
@@ -172,13 +171,6 @@ public class InventoryStorageUtil {
 
 		for (final PotionEffect ef : s.getPotionEffects())
 			player.addPotionEffect(ef);
-
-		// Scoreboard tags
-		try {
-			for (final String tag : s.getScoreboardTags())
-				player.addScoreboardTag(tag);
-		} catch (final Throwable err) {
-		}
 
 		if (!player.isOnline())
 			player.saveData();
@@ -264,5 +256,4 @@ class StoredInventory {
 	private boolean silent;
 
 	private Collection<PotionEffect> potionEffects;
-	private Collection<String> scoreboardTags;
 }

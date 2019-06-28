@@ -1,5 +1,7 @@
 package org.mineacademy.gameapi;
 
+import java.util.List;
+
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -45,14 +47,14 @@ public interface ArenaRegion extends ConfigSerializable {
 	 *
 	 * @return all region blocks
 	 */
-	Block[] getBlocks();
+	List<Block> getBlocks();
 
 	/**
 	 * Get all entities (live) in the arena region
 	 *
 	 * @return all alive entities
 	 */
-	Entity[] getEntities();
+	List<Entity> getEntities();
 
 	/**
 	 * Get the region world
