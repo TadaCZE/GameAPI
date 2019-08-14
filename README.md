@@ -1,5 +1,5 @@
 <p align="center">
-  Do you want to code your own minigame?
+  Do you want to build your own minigame using everything Minecraft has to offer?
   <a href="https://mineacademy.org/gh-join">
     <img src="https://i.imgur.com/SuIyaDV.png" />
   </a>
