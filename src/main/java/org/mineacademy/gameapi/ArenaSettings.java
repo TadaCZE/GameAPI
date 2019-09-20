@@ -151,6 +151,11 @@ public interface ArenaSettings {
 	boolean igniteTnts();
 
 	/**
+	 * Shall we open class selection menu right after joining the lobby?
+	 */
+	boolean openClassMenu();
+
+	/**
 	 * Return the maximum players in the arena
 	 *
 	 * @return the maximum players in the arena
