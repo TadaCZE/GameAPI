@@ -11,7 +11,7 @@
 	
 	<!-- Compile the plugin and its dependencies -->
 	<target if="isMac" name="BuildMac">
-		<jar jarfile="\Users\kangarko\Desktop\Server\plugins\${ant.project.name}.jar" basedir="./target/classes/" includes="**/*" />
+		<jar jarfile="\Users\kangarko\Minecraft Server\plugins\${ant.project.name}.jar" basedir="./target/classes/" includes="**/*" />
 	</target>
 
 	<target if="isWindows" name="BuildWin">
