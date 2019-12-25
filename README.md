@@ -41,4 +41,8 @@ Import the dependency below into your pom.xml:
 4. Register each of you arena in 'ArenaRegistry' on plugin load.
 5. Done! Now you have access to your arenas from anywhere, and you can also listen to events in the event package.
 
-© Copyright 2017 - 2019 kangarko | All Rights Reserved.
+## Legal
+
+This project is open-source. For non-commercial and private purposes, no attribution is required. For commercial purposes, you need to put a link to this page into a visible place all places where you make your plugin available for download. Selling this library or its parts is prohibited. Selling a premium plugin using this library is allowed however it must be made clear that this library is free of charge.
+
+© Copyright 2017 - 2019 kangarko | All Rights Reserved. 
