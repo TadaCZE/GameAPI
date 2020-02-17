@@ -15,6 +15,7 @@
 	</target>
 
 	<target if="isWindows" name="BuildWin">
+        <jar jarfile="D:\Test servers\1.15\plugins\${ant.project.name}.jar" basedir="./target/classes/" includes="**/*" />
 		<jar jarfile="D:\Test servers\1.14\plugins\${ant.project.name}.jar" basedir="./target/classes/" includes="**/*" />
 		<jar jarfile="D:\Test servers\1.13\plugins\${ant.project.name}.jar" basedir="./target/classes/" includes="**/*" />
 		<jar jarfile="D:\Test servers\1.12\plugins\${ant.project.name}.jar" basedir="./target/classes/" includes="**/*" />
