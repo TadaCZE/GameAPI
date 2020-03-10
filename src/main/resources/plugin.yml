@@ -1,5 +1,5 @@
 name: ${project.artifactId}
-main: ${mainClass}
+main: ${main.class}
 version: ${project.version}
 api-version: 1.13
 author: ${author}

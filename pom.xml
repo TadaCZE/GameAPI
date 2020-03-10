@@ -15,7 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<author>kangarko</author>
-		<mainClass>${project.groupId}.gameapi.plugin.GameAPIPlugin</mainClass>
+		<main.class>${project.groupId}.gameapi.plugin.GameAPIPlugin</main.class>
 	</properties>
 
 	<repositories>
