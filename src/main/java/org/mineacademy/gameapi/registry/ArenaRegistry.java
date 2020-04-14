@@ -205,7 +205,7 @@ public class ArenaRegistry {
 			final HashSet<Arena> set = new HashSet<>(super.getArenas());
 
 			// Remove all arenas not owned by our plugin
-			set.removeIf((arena) -> !arena.getPlugin().getName().equals(plugin.getName()));
+			set.removeIf(arena -> !arena.getPlugin().getName().equals(plugin.getName()));
 
 			return set;
 		}
@@ -244,7 +244,7 @@ public class ArenaRegistry {
 		public final List<String> getAvailable() {
 			final List<String> all = new ArrayList<>();
 
-			getArenas().forEach((a) -> all.add(a.getName()));
+			getArenas().forEach(a -> all.add(a.getName()));
 
 			return all;
 		}

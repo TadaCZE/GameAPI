@@ -70,8 +70,7 @@ public abstract class Countdown implements Runnable {
 	public final void run() {
 		secondsSinceStart++;
 
-		if (secondsSinceStart < duration) {
-
+		if (secondsSinceStart < duration)
 			try {
 				onTick();
 
@@ -87,8 +86,7 @@ public abstract class Countdown implements Runnable {
 
 				t.printStackTrace();
 			}
-
-		} else {
+		else {
 			cancel();
 
 			onEnd();

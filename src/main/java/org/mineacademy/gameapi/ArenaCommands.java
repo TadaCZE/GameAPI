@@ -39,7 +39,7 @@ public final class ArenaCommands {
 		final List<String> copy = new ArrayList<>();
 
 		if (commands != null)
-			commands.forEach((cmd) -> {
+			commands.forEach(cmd -> {
 				if (cmd.startsWith("/"))
 					cmd = cmd.substring(1, cmd.length());
 
