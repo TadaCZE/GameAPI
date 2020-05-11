@@ -19,6 +19,12 @@ public enum BlockClick {
 	 */
 	LEFT_CLICK;
 
+	/**
+	 * Parses Bukkit action into our block click, failing if it is not a block-related click
+	 *
+	 * @param action
+	 * @return
+	 */
 	public static BlockClick fromAction(Action action) {
 		final BlockClick click = BlockClick.valueOf(action.toString().replace("_BLOCK", ""));
 		Objects.requireNonNull(click, "Report / Unsupported click type from " + action);
